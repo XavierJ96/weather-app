@@ -3,6 +3,8 @@
 
 Weather App is a user-friendly web application built using React, Vite, Tailwind, OpenWeatherMap API, and GeoDP API. It allows users to check the current weather and forecast for their location or any other location of their choice.
 
+The application makes use of GeoDP API to fetch the user's location and OpenWeatherMap API to fetch weather data. The user interface is designed using Tailwind CSS, making it visually appealing and easy to navigate.
+
 
 ## Run Locally
 
