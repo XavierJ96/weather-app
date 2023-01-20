@@ -54,3 +54,8 @@ Start the server
 ## Demo
 
 https://xj-weather-app.netlify.app
+
+## Feedback
+
+If you have any feedback, please reach out to us at marcelinnoj@gmail.com
+
