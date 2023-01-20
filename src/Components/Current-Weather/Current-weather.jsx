@@ -6,7 +6,7 @@ export default function CurrentWeather({data}) {
 
      //  Date
     // Extract the timestamp from the API response
-    const timestamp = data.dt + data.timezone;
+    const timestamp = data.dt;
     // Convert timestamp to a JavaScript Date object
     const date = new Date(timestamp * 1000);
     // Format the date and time as desired
