@@ -36,7 +36,7 @@ export default function CurrentWeather({data}) {
     return (
         <div className='bg-[#162635]/80 rounded-xl py-6 px-8 space-y-4 text-white font-[rubik]'>
             <div className='flex flex-col items-center'>
-                <span className='text-3xl'>{data.city}</span>
+                <span className='text-3xl text-center'>{data.city}</span>
                 <span className='text-lg'>{dayName}, {monthDay}</span>
             </div>
             <div className='flex justify-center items-center gap-x-6 font-[Nunito]'>
