@@ -33,7 +33,7 @@ export default function CurrentWeather({data}) {
     const description = arr.join(" ");
 
     return (
-        <div className='bg-[#162635]/80 rounded-xl py-4 px-8 space-y-4 text-white font-[rubik]'>
+        <div className='bg-[#162635]/80 rounded-xl py-6 px-8 space-y-4 text-white font-[rubik]'>
             <div className='flex flex-col items-center'>
                 <span className='text-3xl'>{data.city}</span>
                 <span className='text-lg'>{dayName}, {time}</span>
