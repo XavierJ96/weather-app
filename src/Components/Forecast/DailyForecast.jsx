@@ -29,7 +29,6 @@ function DailyForecast({ dailyData }) {
                 {dailyData.list.slice(1, 6).map((item, index) => {
                     const date = new Date(item.dt * 1000);
                     const dayInWeek = date.getDay();
-                    console.log(date)
                     return (
                       <div key={index} className="flex flex-col items-center">
                           <label htmlFor="">{WEEK_DAYS_ABBR[dayInWeek]}</label>
