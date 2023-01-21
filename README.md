@@ -59,5 +59,5 @@ https://xj-weather-app.netlify.app
 
 ## Feedback
 
-If you have any feedback, please reach out to us at marcelinnoj@gmail.com
+If you have any feedback, please reach out to me at marcelinnoj@gmail.com
 
