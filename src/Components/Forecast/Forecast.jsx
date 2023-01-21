@@ -3,6 +3,7 @@ import { TbTemperatureCelsius } from "react-icons/tb";
 
 
 function Forecast({hourData }) {
+    const [error, setError] = useState(null);
 
        // Filter the data to only get the items starting from the current time
        const currentTime = new Date();
@@ -11,8 +12,14 @@ function Forecast({hourData }) {
          return itemTime >= currentTime;
        });
 
+    //    If data fails 
+       if (!nextItems || !nextItems.length) {
+        setError("No Data available");
+        }
+
        return (
         <div className="w-full font-[rubik] py-4 px-8 text-white bg-[#162635]/80 space-y-4 rounded-xl">
+            { error && <div className="text-red-600">{error}</div> }
             <label className="text-2xl">Hourly forecast</label> 
             {/* Iterate through the data to get 5 items */}
              <section className="flex justify-evenly">
