@@ -11,5 +11,5 @@ export const geoOptions = {
 };
 
 export const WEATHER_API_URL = "https://api.openweathermap.org/data/2.5"
-export const API_KEY = "f474e0125908734038acce11689672e9"
-export const Hourly_KEY = "0a4826b18b34904468780fb9d7f40dd1"
+export const API_KEY =  // enter your key from openweather API
+export const Hourly_KEY =  // enter your key from openweather API
