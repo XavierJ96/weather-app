@@ -1,6 +1,5 @@
-import { Accordion, AccordionItem, AccordionItemButton, AccordionItemHeading, AccordionItemPanel } from "react-accessible-accordion"
 import { TbTemperatureCelsius } from "react-icons/tb";
-
+import { useState } from "react";
 
 function Forecast({hourData }) {
     const [error, setError] = useState(null);

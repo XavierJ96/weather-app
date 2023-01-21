@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Search from "./Components/Search/Search"
 import CurrentWather from "./Components/Current-Weather/Current-weather"
-import { WEATHER_API_URL, API_KEY, Hourly_KEY } from "./api";
+import { WEATHER_API_URL, API_KEY, Hourly_KEY, FORECAST_API_URL } from "./api";
 import './App.css'
 import Forecast from "./Components/Forecast/Forecast";
+import DailyForecast from "./Components/Forecast/DailyForecast";
 
 export default function App() {
 
   const [currentWeather, setCurrentWeather] = useState(null);
-  const [forecastWeather, setForecastWeather] = useState(null);
+  const [forecastDaily, setForecastDaily] = useState(null);
   const [forecastHour, setHourForecast] = useState(null);
 
   
@@ -17,17 +18,17 @@ export default function App() {
     const [lat, lon] = searchData.value.split(" ");
     // Declare API'S
     const currentWeatherFetch = fetch(`${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`)
-    const forecastFetch = fetch(`${WEATHER_API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`)
-    const hourlyForecast = fetch(`https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=${lat}&lon=${lon}&appid=${Hourly_KEY}&units=metric`)
+    const dailyForecastFetch = fetch(`${FORECAST_API_URL}/forecast/daily?lat=${lat}&lon=${lon}&appid=${Hourly_KEY}&units=metric`)
+    const hourlyForecastFetch = fetch(`${FORECAST_API_URL}/forecast/hourly?lat=${lat}&lon=${lon}&appid=${Hourly_KEY}&units=metric`)
     // returns a single promise
-    Promise.all([currentWeatherFetch, forecastFetch, hourlyForecast])
+    Promise.all([currentWeatherFetch, dailyForecastFetch, hourlyForecastFetch])
       .then(async (res) => {
         const weatherResponse = await res[0].json();
-        const forecastResponse = await res[1].json();
+        const dailyResponse = await res[1].json();
         const hourlyResponse = await res[2].json();
         // store data received
         setCurrentWeather({ city: searchData.label, ...weatherResponse });
-        setForecastWeather({ city: searchData.label, ...forecastResponse });
+        setForecastDaily({ city: searchData.label, ...dailyResponse });
         setHourForecast({ city: searchData.label, ...hourlyResponse })
       })
 
@@ -40,7 +41,8 @@ export default function App() {
       <div className="w-full max-w-[550px] mx-auto px-2 py-2 space-y-12" >
         <Search onSearchChange={handleOnSearchChange} />
         {currentWeather && <CurrentWather data={currentWeather} />}
-        {forecastWeather && <Forecast data={forecastWeather} hourData={forecastHour} />}
+        {forecastHour && <Forecast hourData={forecastHour} />}
+        {forecastDaily && <DailyForecast dailyData={forecastDaily} />}
       </div>
     </div>
   );
