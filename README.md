@@ -29,7 +29,7 @@ Install dependencies
 Start the server
 
 ```bash
-  npm run start
+  npm run dev
 ```
 
 
@@ -42,7 +42,7 @@ Start the server
 
 ## Screenshots
 
-![App Screenshot](https://im2.ezgif.com/tmp/ezgif-2-9a98a705e9.gif)
+![App Screenshot](https://xj-portfolio.netlify.app/images/WeatherApp.jpg)
 
 
 ## Features
