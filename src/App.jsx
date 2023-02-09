@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Search from "./Components/Search/Search"
 import CurrentWather from "./Components/Current-Weather/Current-weather"
-import { WEATHER_API_URL, API_KEY, Hourly_KEY, FORECAST_API_URL } from "./api";
+import { WEATHER_API_URL, FORECAST_API_URL } from "./api";
 import './App.css'
 import Forecast from "./Components/Forecast/Forecast";
 import DailyForecast from "./Components/Forecast/DailyForecast";
@@ -12,14 +12,17 @@ export default function App() {
   const [forecastDaily, setForecastDaily] = useState(null);
   const [forecastHour, setHourForecast] = useState(null);
 
+
+  console.log(import.meta.env.VITE_REACT_APP_API_KEY)
+
   
   // Get data using the Lon and Lat received by City to display
   const handleOnSearchChange = (searchData) => {
     const [lat, lon] = searchData.value.split(" ");
     // Declare API'S
-    const currentWeatherFetch = fetch(`${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`)
-    const dailyForecastFetch = fetch(`${FORECAST_API_URL}/forecast/daily?lat=${lat}&lon=${lon}&appid=${Hourly_KEY}&units=metric`)
-    const hourlyForecastFetch = fetch(`${FORECAST_API_URL}/forecast/hourly?lat=${lat}&lon=${lon}&appid=${Hourly_KEY}&units=metric`)
+    const currentWeatherFetch = fetch(`${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${import.meta.env.VITE_REACT_APP_API_KEY}&units=metric`)
+    const dailyForecastFetch = fetch(`${FORECAST_API_URL}/forecast/daily?lat=${lat}&lon=${lon}&appid=${import.meta.env.VITE_REACT_APP_API_KEY}&units=metric`)
+    const hourlyForecastFetch = fetch(`${FORECAST_API_URL}/forecast/hourly?lat=${lat}&lon=${lon}&appid=${import.meta.env.VITE_REACT_APP_API_KEY}&units=metric`)
     // returns a single promise
     Promise.all([currentWeatherFetch, dailyForecastFetch, hourlyForecastFetch])
       .then(async (res) => {

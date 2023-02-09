@@ -12,5 +12,4 @@ export const geoOptions = {
 
 export const WEATHER_API_URL = "https://api.openweathermap.org/data/2.5"
 export const FORECAST_API_URL = "https://pro.openweathermap.org/data/2.5"
-export const API_KEY = //YOUR API KEY
-export const Hourly_KEY = // YOUR API KEY
+
