@@ -11,10 +11,6 @@ export default function App() {
   const [currentWeather, setCurrentWeather] = useState(null);
   const [forecastDaily, setForecastDaily] = useState(null);
   const [forecastHour, setHourForecast] = useState(null);
-
-
-  console.log(import.meta.env.VITE_REACT_APP_API_KEY)
-
   
   // Get data using the Lon and Lat received by City to display
   const handleOnSearchChange = (searchData) => {
